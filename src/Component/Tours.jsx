@@ -1,26 +1,24 @@
-import React from 'react'
-import Card from './Card';
-const Tours = (props) => {
+// import React, { useState } from 'react';
+import Card  from './Card';
 
-    function removeHandler(id) {
-        console.log(id);
-        props.removeTours(id);
-    }
 
-    return (
-        <div className='container'>
-            <div>
-                <h2 className='title'>Plan with Love</h2>
-            </div>
-            <div className='cards'>
-                {
-                    props.tours.map((tour) => {
-                        return <Card {...tour} key={tour.id} removeTour={removeHandler} />;
-                    })
-                }
-            </div>
-        </div>
-    )
+function Tours({tours, removeTour}) {
+
+   
+  return (
+    <div className='container'>
+      <div>
+      <h1 className='title'> Kashmir Tourism</h1>
+      </div> 
+      <div className='cards'>
+          {
+            tours.map( (tour) =>{
+                return <Card key={tour.id} {...tour} removeTour ={removeTour}></Card>
+            })
+          }
+      </div>
+    </div>
+  );
 }
 
 export default Tours;
